@@ -1,0 +1,167 @@
+body, html {
+	height: 100%;
+}
+
+html {
+	 overflow-y:scroll;
+}
+
+body {
+	background-color: #eaeaea;
+	font-size: 15px;
+	font-family: Arial;
+	line-height: 1.3em;
+}
+
+a {
+	text-decoration: none;
+	color: #003766;
+}
+
+a:hover {
+	color: #008aff;
+}
+
+.wrapper-page {
+	margin: 0 auto;
+	height: 100%;
+	width: 100%;
+	max-width: 1180px;
+	display: flex;
+	flex-direction: column;  
+}
+
+.header {
+	background-color: #3b1127;
+	height: 80px;
+	flex-shrink: 0;
+	margin-bottom: 2px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.logo {
+	width: 156px;
+	height: 70px;
+	margin: 2px 0 0 30px;
+	background-image: url(../img/logo.png);
+}
+
+.social-link ul {
+	display: flex;
+	margin: 20px 30px 0 0;
+}
+
+.social-link ul li {
+	padding: 10px;
+	list-style: none;
+}
+
+.social-link ul li a {
+	text-decoration: none;
+	color: #febf0f;
+}
+
+.social-link ul li a:hover {
+	color: #fff;
+}
+
+.navigation-box {
+	height: 40px;
+	background-color: #550f24;
+	flex-shrink: 0;
+}
+
+.navigation {
+	height: 40px;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.navigation li:first-child {
+	margin-left: 30px;
+}
+
+.navigation li {
+	padding: 0 12px;
+	list-style: none;
+}
+
+.navigation li a {
+	padding: 2px;
+	color: #febf0f;
+	text-decoration: none;
+}
+
+.navigation li a:hover {
+	color: #fff;
+
+}
+
+.content-box {
+	margin: 2px 0 2px 0;
+	flex: 1 0 auto;
+	display: flex;
+}
+
+.main-content {
+	width: 100%;
+	max-width: 922px;
+	margin-right: 4px;
+	border: 1px solid #272727;
+	line-height: 1.5em;
+}
+
+.news-title, .sidebar-title {
+	background-color: #272727;
+	color: #fff;
+	padding-left: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 32px;
+}
+
+.news-content, .sidebar-content {
+	padding: 10px;
+}
+
+.date-updated {
+	text-align: center;
+	background-color: #b4b4b4;
+}
+
+.sidebar {
+	width: 100%;
+	max-width: 250px;
+ 	border: 1px solid #272727;
+}
+
+.footer {
+	height: 30px;
+	background-color: #272727;
+	text-align: center;
+	flex-shrink: 0;
+	position: relative;
+}
+
+.copyright {
+	font-size: 12px;
+	margin-top: 8px;
+}
+.version {
+	position: absolute;
+	font-size: 11px;
+	top: 8px;
+	left: 15px;
+}
+
+.foto-home-content {
+	max-width: 200px;
+	max-height: 200px;
+	float: left;
+	padding: 5px 15px 5px 0;
+}
