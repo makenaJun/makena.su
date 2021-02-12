@@ -165,3 +165,25 @@ a:hover {
 	float: left;
 	padding: 5px 15px 5px 0;
 }
+
+.nav-blog{
+	text-align: center;
+}
+.nav-blog a{
+	background-color: #550f24;
+	color: #febf0f;
+	border-radius: 5px;
+	font-size: 18px;
+	padding: 5px;
+}
+
+.nav-blog a:hover{
+	background-color: #272727;
+	color: #fff;
+
+}
+
+#activ{
+	background-color: #febf0f;
+	color: #550f24;
+}
