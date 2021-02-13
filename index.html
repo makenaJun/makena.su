@@ -52,19 +52,19 @@
          <div class="sidebar-block">
                 <div class="sidebar-title">Прогресс</div>
                   <div class="sidebar-content">
-                    Изучение HTML & CSS 151ч.
+                    Изучение HTML & CSS <span class="progressTime" id="htmlCss"></span>ч.
                     <hr>
-                    Изучение JavaScript 114ч.
+                    Изучение JavaScript <span class="progressTime" id="nativJs"></span>ч.
                     <hr>
-                    Изучение React.js 2ч.
+                    Изучение React.js <span class="progressTime" id="reactJs"></span>ч.
                     <hr>
-                    Изучение общих тем IT 68ч.
+                    Изучение общих тем IT <span class="progressTime" id="otherTopicsIt"></span>ч.
                     <hr>
-                    Итого 335ч.
+                    Итого <span id="totalProgress"></span>ч.
                     <hr>
-                    Обучаюсь - 100 дней
+                    Обучаюсь - <span id="elapsedTime"></span> дней
                 </div>   
-               <div class="date-updated">Последнее обновление 12.02.2021</div>              
+               <div class="date-updated">Последнее обновление <span id="updateDate"></span></div>              
             </div>
         </aside>
 
@@ -74,6 +74,7 @@
         <div class="copyright"> © 2020 www.makena.su </div>
     </footer>
 </div>
+<script src="js/progress.js"></script>
 </body>
     
 </html>
