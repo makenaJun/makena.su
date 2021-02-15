@@ -13,15 +13,15 @@ updateDate = document.querySelector('#updateDate');
 //Изучение HTML & CSS
 htmlCss.textContent = 151;
 //Изучение JavaScript
-nativJs.textContent = 133;
+nativJs.textContent = 136;
 //Изучение React.js
 reactJs.textContent = 2;
 //Изучение общих тем IT
 otherTopicsIt.textContent = 68;
 //Обучаюсь
-elapsedTime.textContent = 102;
+elapsedTime.textContent = 103;
 //Последнее обновление
-updateDate.textContent = '14.02.2021'
+updateDate.textContent = '15.02.2021'
 
 //Итого на обучение потрачено
 let counter = 0;
