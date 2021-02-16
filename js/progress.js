@@ -1,4 +1,4 @@
-let htmlCss, nativJs, reactJs, otherTopicsIt, totalProgress, progressTime, elapsedTime, updateDate;
+let htmlCss, nativJs, reactJs, otherTopicsIt, totalProgress, progressTime, elapsedTime, updateDate, dayOfStudy;
 
 
 htmlCss = document.querySelector('#htmlCss');
@@ -8,6 +8,7 @@ otherTopicsIt = document.querySelector('#otherTopicsIt');
 totalProgress = document.querySelector('#totalProgress');
 progressTime = document.querySelectorAll('.progressTime');
 elapsedTime = document.querySelector('#elapsedTime');
+dayOfStudy = document.querySelector('#dayOfStudy');
 updateDate = document.querySelector('#updateDate');
 
 //Изучение HTML & CSS
@@ -29,3 +30,21 @@ for(let i of progressTime){
 	counter += Number(i.textContent);
 }
 totalProgress.textContent = counter;
+
+// Обновление слова "дней"
+( function () {
+	const penultNum = elapsedTime.innerHTML.slice(-2, -1);
+	const lastNum = elapsedTime.innerHTML.slice(-1);
+
+	if(penultNum === '1'){
+			dayOfStudy.textContent = 'дней';
+		}
+	else if(lastNum === '1'){
+			dayOfStudy.textContent = 'день';
+	}
+	else if(lastNum === '2' || lastNum === '3' || lastNum === '4'){
+		dayOfStudy.textContent = 'дня';
+	}else{
+		dayOfStudy.textContent = 'дней';
+	}
+})();
