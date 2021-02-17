@@ -1,4 +1,4 @@
-let htmlCss, nativJs, reactJs, otherTopicsIt, totalProgress, progressTime, elapsedTime, updateDate, dayOfStudy;
+let htmlCss, nativJs, reactJs, otherTopicsIt, totalProgress, progressTime, elapsedTime, updateDate, dayOfStudy, requestProgress, responseProgress;
 
 
 htmlCss = document.querySelector('#htmlCss');
@@ -11,18 +11,29 @@ elapsedTime = document.querySelector('#elapsedTime');
 dayOfStudy = document.querySelector('#dayOfStudy');
 updateDate = document.querySelector('#updateDate');
 
-//Изучение HTML & CSS
-htmlCss.textContent = 151;
+//Получение данных JSON
+const jsonLink = "http://makena.su/js/data-progress.json";
+
+requestProgress = new XMLHttpRequest();
+requestProgress.open('GET', jsonLink);
+requestProgress.responseType = 'json';
+requestProgress.send();
+
+requestProgress.onload = function (){
+	responseProgress = requestProgress.response
+
+	//Изучение HTML & CSS
+htmlCss.textContent = responseProgress.htmlCss;
 //Изучение JavaScript
-nativJs.textContent = 141;
+nativJs.textContent = responseProgress.nativJs;
 //Изучение React.js
-reactJs.textContent = 2;
+reactJs.textContent = responseProgress.reactJs;
 //Изучение общих тем IT
-otherTopicsIt.textContent = 68;
+otherTopicsIt.textContent = responseProgress.otherTopicsIt;
 //Обучаюсь
-elapsedTime.textContent = 104;
+elapsedTime.textContent = responseProgress.elapsedTime;
 //Последнее обновление
-updateDate.textContent = '16.02.2021'
+updateDate.textContent = responseProgress.updateDate
 
 //Итого на обучение потрачено
 let counter = 0;
@@ -48,3 +59,5 @@ totalProgress.textContent = counter;
 		dayOfStudy.textContent = 'дней';
 	}
 })();
+}
+
