@@ -32,9 +32,35 @@
             <div class="news-block">
                 <div class="news-title">Блог</div>
                 <div class="news-content">
+                    <b>17.02.2021</b>
+                    <p>
+                        Ознакомился с разделом <a href="https://learn.javascript.ru/binary" title="Бинарные данные и файлы" target="_blank">Бинарные данные и файлы</a>. Думаю, что в повседневной работе Frontend разработчика скорее всего не встретишь, но я прочел для общего развития.
+                    </p>
+                    <p>
+                        Изучил урок <a href="https://learn.javascript.ru/arraybuffer-binary-arrays" title="ArrayBuffer, бинарные массивы" target="_blank">ArrayBuffer, бинарные массивы</a>. Задачу решил немного другим способом. Также детально разобрал способ представленный в решении. Нашел <a href="https://medium.com/devschacht/a-crash-course-in-memory-management-b4863e000a5f" title="курс по управлению памятью" target="_blank">курс по управлению памятью</a> в котором очень хорошо объясняется вопрос (а зачем это надо?).
+                    </p>
+                    <p>
+                        Не знаю насколько это правильно, я просто добавил в ссылку для подключения JS файла, код для проверки даты изменения JSON файла.
+                        Ссылка на файл имеет вид:
+                        <br>  
+                        <code>
+                           http://makena.su/js/progress.js?16135431121613543292
+                        </code>
+                    </p>
+                    <p>
+                        При любом изменении файла JS или JSON ссылка будет менятся и сооветственно браузер будет обновлять кэш. Единственный минус, при изменении всего одного файла будут обновляться два, что повлечет за собой задержки при загрузке. В моем случае файлы маленькие, так что думаю пойдет. Для более нагруженных сайтов придется искать другой способ.
+                    </p>  
+                        <code><b>
+                           &lt;script src="js/progress.js?&lt;?php echo filemtime('js/progress.js'); echo filemtime('js/data-progress.json') ?&gt;"&gt;&lt;/script&gt;
+                        </b></code>
+                    </p>
+                    <p>
+                        Реализовал хранение данных в JSON файле. Но теперь проблемка с кэшем вернулась, так как JS файл не обновляется и из-за этого не делается запрос на обновление данных из файла JSON.
+                    </p>
+                   <hr>
                     <b>16.02.2021</b>
                     <p>
-                        Задумался о том, чтобы хранить данные для блока "Прогресс" не в JS файле, а в JSON. Думаю будет не лишним практика с JSON.
+                        Задумался о том, чтобы хранить данные для блока "Прогресс" не в JS файле, а в JSON. Думаю будет не лишним практика работы с JSON.
                     </p>
                     <p>
                         Ознакомился с разделом <a href="https://learn.javascript.ru/frames-and-windows" title="Фреймы и окна" target="_blank">Фреймы и окна</a>. Интересно было прочитать про взлом с помощью clickjacking.
@@ -111,12 +137,6 @@
                         Сегодня было всего пара часов, все провел над <a href="https://learn.javascript.ru/mousemove-mouseover-mouseout-mouseenter-mouseleave#umnaya-podskazka" title="Задача на learn.javascript" target="_balank">задачкой</a>, так и не решил её. Завтра буду атаковать!
                     </p>
                    <hr>
-                    <b>07.02.2021</b>
-                    <p>Начал ознакомление с <a href="https://webref.ru/css" title="webref.ru" target="_balank">CSS разделами</a> [псевдоэлементы], [селекторы и их комбинации].</p>
-                    <p>
-                        Досмотрел все теги + их атрибуты, из 118-ти, 43 тега оказались незнакомыми. По знакомым просто обновил знания.
-                    </p>
-                   <hr>
                     <div class="nav-blog">
                         <a id="activ" href="blog.html">2</a>
                         <a  href="blog-page1.html">1</a>
@@ -150,7 +170,7 @@
         <div class="copyright"> © 2020 www.makena.su</div>
     </footer>
 </div>
-<script src="js/progress.js?<?php echo filemtime('js/progress.js') ?>"></script>
+<script src="js/progress.js?<?php echo filemtime('js/progress.js'); echo filemtime('js/data-progress.json') ?>"></script>
 </body>
     
 </html>
