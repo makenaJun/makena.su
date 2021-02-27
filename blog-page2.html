@@ -2,160 +2,230 @@
 <html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Makena - Blog - Page 2 - Путь в IT</title>
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <title>Makena - Blog - Page 2 - Путь в IT</title>
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-<div class="wrapper-page">
+  <div class="wrapper-page">
     <header class="header">
-        <div class="logo"></div>
-        <div class="social-link">
-            <ul>
-                <li><a href="https://www.instagram.com/makenagarage/" title="Ссылка на профиль в Instagram" target="_blank">Instagram</a></li>
-                <li><a href="https://www.youtube.com/channel/UCXqXPXR57SyRKNDaRqpkJZQ" title="Ссылка на канал в YouTube" target="_blank">YouTube</a></li>
-            </ul>
-        </div>
+      <div class="logo"></div>
+      <div class="social-link">
+        <ul>
+          <li><a href="https://www.instagram.com/makenagarage/" title="Ссылка на профиль в Instagram"
+              target="_blank">Instagram</a></li>
+          <li><a href="https://www.youtube.com/channel/UCXqXPXR57SyRKNDaRqpkJZQ" title="Ссылка на канал в YouTube"
+              target="_blank">YouTube</a></li>
+        </ul>
+      </div>
     </header>
     <nav class="navigation-box">
-        <ul class="navigation">
-            <li><a href="index.html" title="Перейти на главную">Главная</a></li>
-            <li><a href="blog.html" title="Блог">Блог</a></li>
-            <li><a href="materials.html" title="Материалы для обучения">Материалы</a></li>
-        </ul>    
+      <ul class="navigation">
+        <li><a href="index.html" title="Перейти на главную">Главная</a></li>
+        <li><a href="blog.html" title="Блог">Блог</a></li>
+        <li><a href="materials.html" title="Материалы для обучения">Материалы</a></li>
+      </ul>
     </nav>
     <div class="content-box">
-        <main class="main-content">
-            <div class="news-block">
-                <div class="news-title">Блог</div>
-                <div class="news-content">
-                  <b>16.02.2021</b>
-                    <p>
-                       [#] Исправил баг со словом "дней" в блоке "Прогресс". Написал простейшую функцию которая берет количество дней отрезает последние цифры, проходит по условиям и соответственно принимает решение какое слово вставить [Обучаюсь - 111 дней, 121 день, 122дня].
-                    </p>
-                    <p>
-                       [#] Задумался о том, чтобы хранить данные для блока "Прогресс" не в JS файле, а в JSON. Думаю будет не лишним практика работы с JSON.
-                    </p>
-                    <p>
-                       [#] Ознакомился с разделом <a href="https://learn.javascript.ru/frames-and-windows" title="Фреймы и окна" target="_blank">Фреймы и окна</a>. Интересно было прочитать про взлом с помощью clickjacking.
-                    </p>
-                    <p>
-                       [#] Так же исправил баг с кэшированием. Обновил JS файл и загрузил на сервер, при переходе на сайт изменения не отображались, так как брался из кэша старый JS файл. Немного погуглив нашел вариант в ссылку на JS файл добавить PHP код который добавляет к пути на файл дату его последнего обновления. Браузер при загрузке сравнивает ссылки и если дата в ссылке изменилась, то подгружает актуальную версию файла. 
-                        <br>
-                        <code><b>
+      <main class="main-content">
+        <div class="news-block">
+          <div class="news-title">Блог</div>
+          <div class="news-content">
+            <b>17.02.2021</b>
+            <p>
+              [#] Реализовал хранение данных в JSON файле. Но теперь проблемка с кэшем вернулась, так как JS файл не
+              обновляется и из-за этого не делается запрос на обновление данных из файла JSON.
+            </p>
+            <p>
+              [#] Не знаю насколько это правильно, я просто добавил в ссылку для подключения JS файла, код для проверки
+              даты изменения JSON файла.
+              Ссылка на файл имеет вид:
+              <br>
+              <code>
+                           http://makena.su/js/progress.js?16135431121613543292
+                        </code>
+            </p>
+            <p>
+              При любом изменении файла JS или JSON ссылка будет менятся и сооветственно браузер будет обновлять кэш.
+              Единственный минус, при изменении всего одного файла будут обновляться два, что повлечет за собой задержки
+              при загрузке. В моем случае файлы маленькие, так что думаю пойдет. Для более нагруженных сайтов придется
+              искать другой способ.
+            </p>
+            <code><b>
+                           &lt;script src="js/progress.js?&lt;?php echo filemtime('js/progress.js'); echo filemtime('js/data-progress.json') ?&gt;"&gt;&lt;/script&gt;
+                        </b></code>
+            </p>
+            <p>
+              [#] Изучил урок <a href="https://learn.javascript.ru/arraybuffer-binary-arrays"
+                title="ArrayBuffer, бинарные массивы" target="_blank">ArrayBuffer, бинарные массивы</a>. Задачу решил
+              немного другим способом. Также детально разобрал способ представленный в решении. Нашел <a
+                href="https://medium.com/devschacht/a-crash-course-in-memory-management-b4863e000a5f"
+                title="курс по управлению памятью" target="_blank">курс по управлению памятью</a> в котором очень хорошо
+              объясняется вопрос (а зачем это надо?).
+            </p>
+            <p>
+              [#] Ознакомился с разделом <a href="https://learn.javascript.ru/binary" title="Бинарные данные и файлы"
+                target="_blank">Бинарные данные и файлы</a>. Думаю, что в повседневной работе Frontend разработчика
+              скорее всего не встретишь, но я прочел для общего развития.
+            </p>
+            <hr>
+            <b>16.02.2021</b>
+            <p>
+              [#] Исправил баг со словом "дней" в блоке "Прогресс". Написал простейшую функцию которая берет количество
+              дней отрезает последние цифры, проходит по условиям и соответственно принимает решение какое слово
+              вставить [Обучаюсь - 111 дней, 121 день, 122дня].
+            </p>
+            <p>
+              [#] Задумался о том, чтобы хранить данные для блока "Прогресс" не в JS файле, а в JSON. Думаю будет не
+              лишним практика работы с JSON.
+            </p>
+            <p>
+              [#] Ознакомился с разделом <a href="https://learn.javascript.ru/frames-and-windows" title="Фреймы и окна"
+                target="_blank">Фреймы и окна</a>. Интересно было прочитать про взлом с помощью clickjacking.
+            </p>
+            <p>
+              [#] Так же исправил баг с кэшированием. Обновил JS файл и загрузил на сервер, при переходе на сайт
+              изменения не отображались, так как брался из кэша старый JS файл. Немного погуглив нашел вариант в ссылку
+              на JS файл добавить PHP код который добавляет к пути на файл дату его последнего обновления. Браузер при
+              загрузке сравнивает ссылки и если дата в ссылке изменилась, то подгружает актуальную версию файла.
+              <br>
+              <code><b>
                            &lt;script src="js/progress.js?&lt;?php echo filemtime('js/progress.js') ?&gt;"&gt;&lt;/script&gt;
                         </b></code>
-                        
-                    </p>
-                   <hr>
-                  <b>15.02.2021</b>
-                    <p>
-                       [#] Полностью закончил раздел <a href="https://learn.javascript.ru/ui" title="Браузер: документ, события, интерфейсы" target="_blank">Браузер: документ, события, интерфейсы</a>. Перехожу к последнему блоку учебника "Тематические разделы". 
-                    </p>
-                    <p>
-                       [#] Заметил маленький баг. Он заключается в блоке "Прогресс" в пункте с днями обучения неправильно отображается слово "дней" (Обучаюсь - 103 дней), руками изменять под каждый день не хочется. Завтра будем автоматизировать этот процесс)
-                    </p>
-                   <hr>
-                  <b>14.02.2021</b>
-                    <p>
-                       [#] Закончил раздел <a href="https://learn.javascript.ru/forms-controls" title="Формы, элементы управления" target="_blank">Формы, элементы управления</a>, задачки из раздела очень понравились. Сейчас приступаю к <a href="https://learn.javascript.ru/loading" title="Загрузка документа и ресурсов" target="_blank">Загрузка документа и ресурсов</a>
-                    </p>
-                    <p>
-                       [#] Закончил раздел <a href="https://learn.javascript.ru/loading" title="Загрузка документа и ресурсов" target="_blank">Загрузка документа и ресурсов</a>, задачу решил быстро.
-                    </p>
-                   <hr>
-                  <b>13.02.2021</b>
-                  <p>
-                    [#]  На сайт добавил немного функционала. До этого надо было обновлять цифры прогресса вручную в каждом HTML файле отдельно. Cейчас цифры берутся из одного JS файла ну и там считается "Итого".
-                    </p>
-                    <p>
-                      [#]  Изучил <a href="https://learn.javascript.ru/keyboard-events" title=">Клавиатура: keydown и keyup" target="_blank">Клавиатура: keydown и keyup</a>, было интересно немного поломать голову над задачкой.
-                    </p>
-                    <p>
-                      [#]  Закончил раздел <a href="https://learn.javascript.ru/event-details" title="Интерфейсные события" target="_blank">Интерфейсные события</a>, приступаю к <a href="https://learn.javascript.ru/forms-controls" title="Формы, элементы управления" target="_blank">Формы, элементы управления</a>
-                    </p>
-                    <p>
-                      [#]  На сегодня остановился на теме - <a href="https://learn.javascript.ru/focus-blur" title="Фокусировка: focus/blur" target="_blank">Фокусировка: focus/blur</a>. Начал решать вторую <a href="https://learn.javascript.ru/focus-blur#redaktirovanie-td-po-kliku" title="задача" target="_blank">задачу</a>. Пытаюсь найти, как растянуть textarea до размеров родительского блока.
-                    </p>
-                   <hr>
-                  <b>12.02.2021</b>
-                    <p>
-                     [#] Детальнее разобрался с  <a href="https://learn.javascript.ru/mouse-drag-and-drop" title="Drag'n'Drop с событиями мыши" target="_blank">Drag'n'Drop с событиями мыши</a>, ну и решил две задачи.
-                       Также добавил на сайт навигацию по блогу. На данный момент уже чувствую, как с каждым днем становится тяжелее вести блог, надо продумывать пути к автоматизации.
-                    </p>
-                   <hr>
-                  <b>11.02.2021</b>
-                    <p>
-                     [#] Сегодня на занятия было всего 2 часа, успел только ознакомиться с <a href="https://learn.javascript.ru/mouse-drag-and-drop" title="Drag'n'Drop с событиями мыши" target="_blank">Drag'n'Drop с событиями мыши</a> и частично решить первую задачу.
-                    </p>
-                   <hr>
-                  <b>10.02.2021</b>
-                    <p>
-                      [#]  Решил <a href="https://learn.javascript.ru/mousemove-mouseover-mouseout-mouseenter-mouseleave#umnaya-podskazka" title="Задача на learn.javascript" target="_balank">задачу</a>, выполнил немного по своему.
-                        <details>
-                            <summary>Мой вариант решения</summary>
-                            <img src="upload/img/code1.png" alt="Код решения">
-                        </details>
-                    </p>
-                   <hr>
-                  <b>09.02.2021</b>
-                    <p>
-                      [#]  Сегодня все-таки придумал решение для <a href="https://learn.javascript.ru/mousemove-mouseover-mouseout-mouseenter-mouseleave#umnaya-podskazka" title="Задача на learn.javascript" target="_balank">задачи</a>, реализовал на 85%. На данный момент понял как отлавливать и правильно обрабатывать события мыши, а также измерять скорость передвижения курсора.
-                    </p>
-                   <hr>
-                  <b>08.02.2021</b>
-                    <p>
-                      [#]  Сегодня было всего пара часов, все провел над <a href="https://learn.javascript.ru/mousemove-mouseover-mouseout-mouseenter-mouseleave#umnaya-podskazka" title="Задача на learn.javascript" target="_balank">задачкой</a>, так и не решил её. Завтра буду атаковать!
-                    </p>
-                   <hr>
-                    <b>07.02.2021</b>
-                    <p>
-                      [#]  Досмотрел все теги + их атрибуты, из 118-ти, 43 тега оказались незнакомыми. По знакомым просто обновил знания.
-                    </p>
-                    <p>
-                     [#] Начал ознакомление с <a href="https://webref.ru/css" title="webref.ru" target="_balank">CSS разделами</a> [псевдоэлементы], [селекторы и их комбинации].
-                   </p>
-                   <hr>
-                  
-                    <div class="nav-blog">
-                        <a  href="blog.html">3</a>
-                        <a  id="activ" href="blog-page2.html">2</a>
-                        <a  href="blog-page1.html">1</a>
-                        </div>
 
-                </div>             
+            </p>
+            <hr>
+            <b>15.02.2021</b>
+            <p>
+              [#] Полностью закончил раздел <a href="https://learn.javascript.ru/ui"
+                title="Браузер: документ, события, интерфейсы" target="_blank">Браузер: документ, события,
+                интерфейсы</a>. Перехожу к последнему блоку учебника "Тематические разделы".
+            </p>
+            <p>
+              [#] Заметил маленький баг. Он заключается в блоке "Прогресс" в пункте с днями обучения неправильно
+              отображается слово "дней" (Обучаюсь - 103 дней), руками изменять под каждый день не хочется. Завтра будем
+              автоматизировать этот процесс)
+            </p>
+            <hr>
+            <b>14.02.2021</b>
+            <p>
+              [#] Закончил раздел <a href="https://learn.javascript.ru/forms-controls"
+                title="Формы, элементы управления" target="_blank">Формы, элементы управления</a>, задачки из раздела
+              очень понравились. Сейчас приступаю к <a href="https://learn.javascript.ru/loading"
+                title="Загрузка документа и ресурсов" target="_blank">Загрузка документа и ресурсов</a>
+            </p>
+            <p>
+              [#] Закончил раздел <a href="https://learn.javascript.ru/loading" title="Загрузка документа и ресурсов"
+                target="_blank">Загрузка документа и ресурсов</a>, задачу решил быстро.
+            </p>
+            <hr>
+            <b>13.02.2021</b>
+            <p>
+              [#] На сайт добавил немного функционала. До этого надо было обновлять цифры прогресса вручную в каждом
+              HTML файле отдельно. Cейчас цифры берутся из одного JS файла ну и там считается "Итого".
+            </p>
+            <p>
+              [#] Изучил <a href="https://learn.javascript.ru/keyboard-events" title=">Клавиатура: keydown и keyup"
+                target="_blank">Клавиатура: keydown и keyup</a>, было интересно немного поломать голову над задачкой.
+            </p>
+            <p>
+              [#] Закончил раздел <a href="https://learn.javascript.ru/event-details" title="Интерфейсные события"
+                target="_blank">Интерфейсные события</a>, приступаю к <a
+                href="https://learn.javascript.ru/forms-controls" title="Формы, элементы управления"
+                target="_blank">Формы, элементы управления</a>
+            </p>
+            <p>
+              [#] На сегодня остановился на теме - <a href="https://learn.javascript.ru/focus-blur"
+                title="Фокусировка: focus/blur" target="_blank">Фокусировка: focus/blur</a>. Начал решать вторую <a
+                href="https://learn.javascript.ru/focus-blur#redaktirovanie-td-po-kliku" title="задача"
+                target="_blank">задачу</a>. Пытаюсь найти, как растянуть textarea до размеров родительского блока.
+            </p>
+            <hr>
+            <b>12.02.2021</b>
+            <p>
+              [#] Детальнее разобрался с <a href="https://learn.javascript.ru/mouse-drag-and-drop"
+                title="Drag'n'Drop с событиями мыши" target="_blank">Drag'n'Drop с событиями мыши</a>, ну и решил две
+              задачи.
+              Также добавил на сайт навигацию по блогу. На данный момент уже чувствую, как с каждым днем становится
+              тяжелее вести блог, надо продумывать пути к автоматизации.
+            </p>
+            <hr>
+            <b>11.02.2021</b>
+            <p>
+              [#] Сегодня на занятия было всего 2 часа, успел только ознакомиться с <a
+                href="https://learn.javascript.ru/mouse-drag-and-drop" title="Drag'n'Drop с событиями мыши"
+                target="_blank">Drag'n'Drop с событиями мыши</a> и частично решить первую задачу.
+            </p>
+            <hr>
+            <b>10.02.2021</b>
+            <p>
+              [#] Решил <a
+                href="https://learn.javascript.ru/mousemove-mouseover-mouseout-mouseenter-mouseleave#umnaya-podskazka"
+                title="Задача на learn.javascript" target="_balank">задачу</a>, выполнил немного по своему.
+            <details>
+              <summary>Мой вариант решения</summary>
+              <img src="upload/img/code1.png" alt="Код решения">
+            </details>
+            </p>
+            <hr>
+            <b>09.02.2021</b>
+            <p>
+              [#] Сегодня все-таки придумал решение для <a
+                href="https://learn.javascript.ru/mousemove-mouseover-mouseout-mouseenter-mouseleave#umnaya-podskazka"
+                title="Задача на learn.javascript" target="_balank">задачи</a>, реализовал на 85%. На данный момент
+              понял как отлавливать и правильно обрабатывать события мыши, а также измерять скорость передвижения
+              курсора.
+            </p>
+            <hr>
+            <b>08.02.2021</b>
+            <p>
+              [#] Сегодня было всего пара часов, все провел над <a
+                href="https://learn.javascript.ru/mousemove-mouseover-mouseout-mouseenter-mouseleave#umnaya-podskazka"
+                title="Задача на learn.javascript" target="_balank">задачкой</a>, так и не решил её. Завтра буду
+              атаковать!
+            </p>
+            <hr>
+
+            <div class="nav-blog">
+              <a href="blog.html">3</a>
+              <a id="activ" href="blog-page2.html">2</a>
+              <a href="blog-page1.html">1</a>
             </div>
-        </main>
-        <aside class="sidebar">
-         <div class="sidebar-block">
-                <div class="sidebar-title">Прогресс</div>
-                  <div class="sidebar-content">
-                    Изучение HTML & CSS <span class="progressTime" id="htmlCss"></span>ч.
-                    <hr>
-                    Изучение JavaScript <span class="progressTime" id="nativJs"></span>ч.
-                    <hr>
-                    Изучение React.js <span class="progressTime" id="reactJs"></span>ч.
-                    <hr>
-                    Изучение общих тем IT <span class="progressTime" id="otherTopicsIt"></span>ч.
-                    <hr>
-                    Итого <span id="totalProgress"></span>ч.
-                    <hr>
-                    Обучаюсь - <span id="elapsedTime"></span> <span id="dayOfStudy"></span>
-                </div>   
-               <div class="date-updated">Последнее обновление <span id="updateDate"></span></div>              
-            </div>
-        </aside>
+
+          </div>
+        </div>
+      </main>
+      <aside class="sidebar">
+        <div class="sidebar-block">
+          <div class="sidebar-title">Прогресс</div>
+          <div class="sidebar-content">
+            Изучение HTML & CSS <span class="progressTime" id="htmlCss"></span>ч.
+            <hr>
+            Изучение JavaScript <span class="progressTime" id="nativJs"></span>ч.
+            <hr>
+            Изучение React.js <span class="progressTime" id="reactJs"></span>ч.
+            <hr>
+            Изучение общих тем IT <span class="progressTime" id="otherTopicsIt"></span>ч.
+            <hr>
+            Итого <span id="totalProgress"></span>ч.
+            <hr>
+            Обучаюсь - <span id="elapsedTime"></span> <span id="dayOfStudy"></span>
+          </div>
+          <div class="date-updated">Последнее обновление <span id="updateDate"></span></div>
+        </div>
+      </aside>
 
     </div>
     <footer class="footer">
-        <div class="version">v0.1</div>
-        <div class="copyright"> © 2020 www.makena.su</div>
+      <div class="version">v0.1</div>
+      <div class="copyright"> © 2020 www.makena.su</div>
     </footer>
-</div>
-<script src="js/progress.js?<?php echo filemtime('js/progress.js'); echo filemtime('js/data-progress.json') ?>"></script>
+  </div>
+  <script
+    src="js/progress.js?<?php echo filemtime('js/progress.js'); echo filemtime('js/data-progress.json') ?>"></script>
 </body>
-    
+
 </html>
