@@ -13,7 +13,7 @@ dayOfStudy = document.querySelector('#dayOfStudy');
 updateDate = document.querySelector('#updateDate');
 
 //Получение данных JSON
-const jsonLink = "http://makena.su/js/data-progress.json";
+const jsonLink = "https://makena.su/js/data-progress.json";
 
 requestProgress = new XMLHttpRequest();
 requestProgress.open('GET', jsonLink);
