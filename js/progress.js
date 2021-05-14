@@ -1,10 +1,12 @@
-let htmlCss, nativJs, reactJs, otherTopicsIt, totalProgress, progressTime, elapsedTime, updateDate, dayOfStudy, requestProgress, responseProgress, typeScript;
+let htmlCss, nativJs, reactJs, otherTopicsIt, totalProgress, progressTime,
+elapsedTime, updateDate, dayOfStudy, requestProgress, responseProgress, typeScript, backEnd;
 
 
 htmlCss = document.querySelector('#htmlCss');
 nativJs = document.querySelector('#nativJs');
 reactJs = document.querySelector('#reactJs');
 typeScript = document.querySelector('#typeScript')
+backEnd = document.querySelector('#backEnd')
 otherTopicsIt = document.querySelector('#otherTopicsIt');
 totalProgress = document.querySelector('#totalProgress');
 progressTime = document.querySelectorAll('.progressTime');
@@ -31,6 +33,8 @@ nativJs.textContent = responseProgress.nativJs;
 reactJs.textContent = responseProgress.reactJs;
 //Изучение TypeScript
 typeScript.textContent = responseProgress.typeScript;
+//Изучение BackEnd
+backEnd.textContent = responseProgress.backEnd;
 //Изучение общих тем IT
 otherTopicsIt.textContent = responseProgress.otherTopicsIt;
 //Обучаюсь
