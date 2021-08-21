@@ -34,156 +34,64 @@
             <div class="news-block">
               <div class="news-title">Блог</div>
               <div class="news-content">
-                <b>20.07.2021</b>
-                <p>
-                  [#] Проделал 1 урок Пути самурая [57]. Узнал что такое useCallback и как он устоен под капотом.
-                </p>
-                <p>
-                  [#] Решил 4 задачи на CodeWars. Одна из них забрала 3 часа) <a href='https://www.codewars.com/kata/60db06ded6c39e002ee35910' target="_blank" title="Inverted Ranges">Inverted Ranges</a>
-                </p>
-                <hr>
-                <b>19.07.2021</b>
-                <p>
-                  [#] Проделал 5 уроков Пути самурая [56].
-                </p>
-                <hr>
-                <b>18.07.2021</b>
-                <p>
-                  [#] Почитал парачку статей из документации по React. Пременил на соц. сети библиотеку для работы с тайтлами страницы react приложения [react-document-title]. 
-                </p>
-                <p>
-                  [#] Посмотрел видео о React.useRef => <a href='https://www.youtube.com/watch?v=8Yy6MDsF-Tg' target="_blank" title="React Hooks — useRef">React Hooks — useRef</a>, <a href='https://www.youtube.com/watch?v=hoQz95Fh84c' target="_blank" title="createRef, setRef, useRef и зачем нужен current в ref">createRef, setRef, useRef и зачем нужен current в ref</a>, <a href='https://www.youtube.com/watch?v=rUGDM7MaRvk' target="_blank" title="Учим useRef за 7 минут - React Hooks">Учим useRef за 7 минут - React Hooks</a>, <a href='https://www.youtube.com/watch?v=9KJxaFHotqI&t=2888s' target="_blank" title="React Hooks - Полный Курс ">React Hooks - Полный Курс</a>
-                </p>
-                <hr>
-                <b>17.07.2021</b>
-                <p>
-                  [#] Сегодня посмотрел => <a href='https://www.youtube.com/watch?v=sjdMBJ72M4s&t=4s' target="_blank" title="Тестирование React приложения">Тестирование React приложения</a>.
-                </p>
-                <hr>
-                <b>16.07.2021</b>
-                <p>
-                  [#] Сегодня решил одну задачу на CodeWars и посмотрел => <a href='https://www.youtube.com/watch?v=cP97KKCq4eg' target="_blank" title="Типизация функций в TypeScript">Типизация функций в TypeScript</a> и <a href='https://www.youtube.com/watch?v=gyqAW0--0Tc' target="_blank" title="Обработка ошибок в React-приложении | Error Boundary">Обработка ошибок в React-приложении | Error Boundary</a>.
-                </p>
-                <hr>
-                <b>15.07.2021</b>
-                <p>
-                  [#] Сегодня прошел 3 урока Пути самурая [51]. Сделал задачу игната (Дописал тесты и написал редьюсеры).
-                  На занятиях по нативному JS, решили парачку задач. 
-                  <details class="details">
-                    <summary>Код тут</summary>
-                    <code><pre>
-                      // 1. Функция sum принимает параметром целые положительные
-                      // числа (неопределённое кол-во) и возвращает их сумму (rest).
-
-                      export function sum(...nums: Array<number>): number {
-                        return nums.reduce((acc, currentValue) => acc += currentValue)
-                      }
-
-
-                      // 2. Функция getTriangleType принимает три параметра:
-                      // длины сторон треугольника.
-                      // Функция должна возвращать:
-                      //  - "10", если треугольник равносторонний,
-                      //  - "01", если треугольник равнобедренный,
-                      //  - "11", если треугольник обычный,
-                      //  - "00", если такого треугольника не существует.
-
-                      export function getTriangleType(a: number, b: number, c: number): string {
-                        // Существует ли треугольник
-                        if (a + b > c && b + c > a && a + c > b) {
-                          // Равносторонний
-                          if (a === b && b === c) return '10';
-                          // Равнобедренный
-                          if (a === b || b === c || a === c) return '01';
-                          // Обычный
-                          return '11';
-                        }
-                        // Такого треугольника не существует
-                        return '00';
-                      }
-
-
-                      // 3. Функция getSum принимает параметром целое число и возвращает
-                      // сумму цифр этого числа
-
-                      export function getSum(number: number): number {
-                        return Array.from(number.toString())
-                        .reduce((acc, currentValue) => acc += Number(currentValue), 0);
-                      }
-
-
-                      // 4. Функция принимает isEvenIndexSumGreater параметром массив чисел.
-                      // Если сумма чисел с чётными ИНДЕКСАМИ!!! (0 как чётный индекс) больше
-                      // суммы чисел с нечётными ИНДЕКСАМИ!!!, то функция возвращает true.
-                      // В противном случае - false.
-
-                      export const isEvenIndexSumGreater = (arr: Array<number>): boolean => {
-                        const even = arr
-                        .filter((n, index) => index % 2 === 0)
-                        .reduce((acc, currentValue) => acc += currentValue, 0);
-                        const odd = arr
-                        .filter((n, index) => index % 2 !== 0)
-                        .reduce((acc, currentValue) => acc += currentValue, 0);
-                        return even > odd
-                      }
-
-
-                      // 5. Функция isSquareGreater принимает два параметра: площадь круга и
-                      // площадь квадрата. Функция должна возвращать true если круг не будет выступать за пределы
-                      // квадрата и false в противном случае. Центры фигур совпадают.
-
-                      export function isSquareGreater(areaCr: number, areaSq: number): boolean {
-                        return areaCr / areaSq <= Math.PI / 4;
-                      }
-
-
-                      // 6. Функция-банкомат принимает параметром целое натуральное число (сумму).
-                      // Возвращает массив с наименьшим количеством купюр, которыми можно выдать эту
-                      // сумму. Доступны банкноты следующих номиналов:
-                      // const banknotes = [1000, 500, 100, 50, 20, 10, 5, 2, 1].
-                      // Считаем, что количество банкнот каждого номинала не ограничено
-
-                      // Д.З.:
-                      export function getBanknoteList(amountOfMoney: number): Array<number> {
-                        const banknotes = [1000, 500, 100, 50, 20, 10, 5, 2, 1]
-                        const result: Array<number> = [];
-                          let restOfMoney = amountOfMoney;
-                          while (restOfMoney > 0) {
-                            let banknote = banknotes.find(b => (restOfMoney - b) >= 0);
-                            if (banknote) {
-                              restOfMoney -= banknote;
-                              result.push(banknote);
-                            }
-                          }
-                          return result;
-                        }
-                      </pre> </code>
-                    </details>
-                  </p>
-                  <hr>
-                  <b>14.07.2021</b>
-                  <p>
-                    [#] Сегодня прошел 3 урока Пути самурая [48]. Также написал тесты на имеющиеся редьюсеры.
-                  </p>
-                  <hr>
-                  <b>13.07.2021</b>
-                  <p>
-                    [#] Сегодня прорешал 2 задачи на CodeWars. Разобралcя с хуком useMemo. На занятиях создавал редьюсер на работу с tasks, как вчера по методологии TDD.
-                  </p>
-                  <hr>
-                  <b>12.07.2021</b>
-                  <p>
-                    [#] В ToDoList начали писать редьюсер тудулистов по методологии TDD.
-                  </p>
-                  <hr>
                   <b>11.07.2021</b>
                   <p>
                     [#] Сегодня прошел собес у Димыча. Просел на useRef(неиспользовал), dispatch(thunk) из тела компонента. Также получил обратную связь по поводу сервера-парсера. Минусы: не обработал возможные ошибки и не соблюл до конца single responsibility. Переписал код сервера с учетом замечаний. <a href='https://github.com/makenaJun/parser_server' target="_blank" title="Ссылка на репозиторий">Ссылка на репозиторий</a>
                   </p>
                   <hr>
+                  <b>10.07.2021</b>
+                  <p>
+                    [#] Сегодня освежал знания о внутрянке Redux.
+                  </p>
+                  <hr>
+               <b>09.07.2021</b>
+               <p>
+                [#] Сделал два варианта счетчика <a href='https://github.com/makenaJun/counter' target="_blank" title="Ссылка на репозиторий счетчика">счетчика</a> который был на экзамене.
+              </p>
+              <hr>
+              <b>08.07.2021</b>
+              <p>
+                [#] Сегодня на занятиях по нативке разбирали юнит тесты и разобрали функцию reducer. Впервые попробывал режим дебага в WebStorm.
+              </p>
+              <hr>
+              <b>07.07.2021</b>
+              <p>
+                [#] Дописал сервер и опубликовал в <a href='https://github.com/makenaJun/parser_server' target="_blank" title="Ссылка на репозиторий">репозиторий</a>. Посмотрел как работать с гитом в WebStorm, и познакомился с fork и pull request.
+              </p>
+              <hr>
+              <b>06.07.2021</b>
+              <p>
+                [#] Сегодня на занятиях разбирали material ui. Поступило интересное задание от Димыча. Надо написать сервер на Node, TS, axios. Сервер должен слать GET запрос на страницу GitHub и парсить нужные данные из разметки. Задача очень интересная реализовал её на 50%.
+              </p>
+              <hr>
+              <b>05.07.2021</b>
+              <p>
+                [#] Сегодня занимался домашкой от Игната (немного поработал с localStorage, и костамизировал стили для input type="radio"). И немного поработал с material ui.
+              </p>
+              <hr>
+              <b>04.07.2021</b>
+              <p>
+                [#] Сегодня занимался домашкой от Игната. Впервые задеплоил React app на GitHub Pages. Также познакомился с библиотекой React Transition Group. Она создана для удобного управления анимациией в React.
+              </p>
+              <hr>
+              <b>03.07.2021</b>
+              <p>
+                [#] Познакомился с хуком useReducer(ничего сложного с тем учетом если знаком с Redux). Разобрали HOC - React.memo.
+                Узнал что в memo можно передать вторым параметром свой callback (в который React передаст в параметры prevState, newState) сценарий  по которому React будет сравнивать входящие пропсы.
+              </p>
+              <hr>
+              <b>02.07.2021</b>
+              <p>
+                [#] Поделал 5 уроков Пути самурая [46].
+              </p>
+              <p>
+                [#] Сегодня преодолел 1000 часов обучения!!! Это только самое начало, но назад пути уже нет!
+              </p>
+              <hr>
                   
                   <div class="nav-blog">
-                    <a href="blog.html">20</a>
+                    <a href="blog.html">21</a>
+                    <a href="blog-page20.html">20</a>
                     <a href="blog-page19.html">19</a>
                     <a href="blog-page18.html">18</a>
                     <a id="activ" href="blog-page17.html">17</a>

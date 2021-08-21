@@ -34,90 +34,76 @@
             <div class="news-block">
               <div class="news-title">Блог</div>
               <div class="news-content">
-                <b>21.05.2021</b>
-              <p>
-                [#] Посмотрел в ознакомительных целях => <a href="https://www.youtube.com/watch?v=HL36Q_VMLb0" target="_blank" title="Функции, разное, Виктор... Кто такой Виктор?">Функции, разное, Виктор... Кто такой Виктор?</a>.
-              </p>
-              <hr> 
-                <b>20.05.2021</b>
-                <p>
-                  [#] За день посмотрел пару видео о MongoDB и изучил пару статей на тему защиты БД.
-                </p>
-                <hr>
-                <b>19.05.2021</b>
-                <p>
-                  [#] Вроде удовлетворил уже все хотелки от сервера. На завтра остается сделать API и компонент отображения статических страниц. 
-                </p>
-                <hr>
-                <b>18.05.2021</b>
-                <p>
-                  [#] Оказывается Full Stack разработка очень затягивается разными мелочами. Сегодня сделал вывод новостей в React app, а на серверной стороне реализовал дозированную отдачу данных (Запрос всех постов => Сортируем посты по дате [новый - старый] => Лимитируем количество записей => Делаем скип, чтобы добиться запроса следующей порции страниц). 
-                </p>
-                <p>
-                  [#] Также при тестовом deploy на сервер наткнулся на проблему, что BrowserRouter делает ссылки типа <i>http://makena.su/blog</i> и при обновлении сайта с такой ссылкой мы попадаем на страницу 404. Решение с HashRouter мне не очень понравилось, немного погуглив нашел решение <a href="https://stackoverflow.com/questions/27928372/react-router-urls-dont-work-when-refreshing-or-writing-manually/36623117#36623117" target="_blank" title="React-router urls don't work when refreshing or writing manually2">React-router urls don't work when refreshing or writing manually</a>. Я воспользовался способом с добавлением файла .htaccess и кодом <pre><code><IfModule mod_rewrite.c>
-                    RewriteEngine On
-                    RewriteBase /
-                    RewriteRule ^index\.html$ - [L]
-                    RewriteCond %{REQUEST_FILENAME} !-f
-                    RewriteCond %{REQUEST_FILENAME} !-d
-                    RewriteCond %{REQUEST_FILENAME} !-l
-                    RewriteRule . /index.html [L]
-                  </IfModule></code></pre>
-                </p>
-                <p>
-                  [#] Посмотрел => 
-                  <a href="https://www.youtube.com/watch?v=cixiEGABi_E" target="_blank" title="#07 Night Show by Dimych 2020-10-25">#07 Night Show by Dimych 2020-10-25</a>, <a href="https://www.youtube.com/watch?v=v6gWWBy_cOM" target="_blank" title="#08 Night Show by Dimych 2020-11-12">#08 Night Show by Dimych 2020-11-12</a>
-                </p>
-                <hr>
-                <b>17.05.2021</b>
-                <p>
-                  [#] Доделал BackEnd и начал соединять c React app. Завтра доделаю API и буду деплоить сервер и приложение.
-                </p>
-                <p>
-                  [#] Посмотрел => 
-                  <a href="https://www.youtube.com/watch?v=Tio-BAD-Hv4" target="_blank" title="HR позвонит #6 / собеседование в IT / IT-INCUBATOR.BY">HR позвонит #6 / собеседование в IT / IT-INCUBATOR.BY</a>
-                </p>
-                <hr>
-                <b>16.05.2021</b>
-                <p>
-                  [#] Почти допилил BackEnd для блога, осталось настройка ограничения доступов и запрос прогресса.
-                </p>
-                <p>
-                  [#] При работе с условиями if в роутинге, надо делать  return либо использовать else, если не сделать выпадает ошибка 
-                  <code>UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: 
-                  Cannot set headers after they are sent to the client</code>
-                  <a href="https://coderoad.ru/29922670/%D0%9F%D0%BE%D1%87%D0%B5%D0%BC%D1%83-%D1%8F-%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B0%D1%8E-Error-Can-t-set-headers-after-they-are-sent-%D0%BD%D0%B5%D1%81%D0%BC%D0%BE%D1%82%D1%80%D1%8F-%D0%BD%D0%B0" target="_blank" title="Ссылка на источник">Ссылка на источник</a>
-                </p>
-                <hr> 
-                <b>15.05.2021</b>
-                <p>
-                  [#] Потратив на поиски проблемы с CORS еще около 2-х часов, я все-таки разобрался в чем дело. Оказалось все просто. Я добавил в проект библиотеку cors настроил по мануалу и сбилдил файлы сервера. Далее я запулил репозиторий на сервер и ничего не заработало. Оказалось - что я выкачал пакеты на локалку, а на сервер нет и node соответственно ругался, что он не знаком с библиотекой cors. Все заработало после выполнения => <b><i>npm install</i></b>
-                </p>
-                <hr>
-                <b>14.05.2021</b>
-                <p>
-                  [#] Почитав кучу информации нашел таки в чем проблема! Проблема заключалась в том, что файл со скриптом лежал по адресу /etc/init.d, а должен был лежать по адресу /etc/systemd/system/. Выполнив перемещение все заработало!
-                </p>
-                <p>
-                  [#] Наткнулся на еще один косяк - это CORS. Пара часов проб не дали результатов. Завтра буду разбираться!
-                </p>
-                <p>
-                  [#] Добавил BackEnd в счетчик прогресса
-                </p>
-                <hr>
-                <b>13.05.2021</b>
-                <p>
-                  [#] По мануалам начал установку и настройку нужных зависимостей на сервер. Установил Nodejs, mongoDb. Всё заработало до первой перезагрузки сервера. Сервер Node поднялся, а сервер MongoDB нет. Решение так и не нашел. Завтра будем добиваться автозапуска!
-                </p>
-                <hr>
                 <b>12.05.2021</b>
                 <p>
                   [#] Сегодня посмотрел и законспектировал материалы по курсу => <a href="https://www.youtube.com/watch?v=xwr3azx0Gf0&list=PL0lO_mIqDDFXcxN3fRjc-EOWZLqW8dLVV&index=2" target="_blank" title="Уроки MongoDB для начинающих">Уроки MongoDB для начинающих</a>.
                 </p>
                 <hr>
+                <b>11.05.2021</b>
+                <p>
+                  [#] Сегодня продолжил чюпать BackEnd. Смотрел видео => <a href="https://www.youtube.com/watch?v=XjXE77iI_hQ" target="_blank" title="Сервер на Express + Mongo. Клиент на React, Redux, Routing">Сервер на Express + Mongo. Клиент на React, Redux, Routing</a>.
+                </p>
+                <hr>
+               <b>10.05.2021</b>
+               <p>
+                [#] Начал чюпать BackEnd, Написал простейший сервер на Node.js, Express по видео => <a href="https://www.youtube.com/watch?v=VeoDOQtPTiM&list=PL0FGkDGJQjJFUDWa8Wg502hEIlPD7kDMt" target="_blank" title="Блог на NodeJS + Express + MongoDB + ReactJS">Блог на NodeJS + Express + MongoDB + ReactJS</a>.Сейчас в поисках информации по работе с MongoDB.
+              </p>
+              <hr>
+              <b>09.05.2021</b>
+              <p>
+                [#] Сегодня доделал все front слои UI, BLL, DAL - пока фэйковый. Начал копать в сторону серверной части. Бэк будет Express + mongodb.
+              </p>
+              <hr>
+              <b>08.05.2021</b>
+              <p>
+                [#] Сегодня начал изучать первые видосики с инкубатора. Нового ничего не узнал. Cо старта пишем на TypeScript! Познакомились с функциональными компонентами, и узнали что такое пропсы.
+              </p>
+              <p>
+                [#] Продолжил разрабатывать блог, за сегодня сделал пробную pagination в UI и понял что в UI 
+                оперировать всем масивом данныx - это такая себе практика. Завтра буду переносить всю логику по выдаче 
+                постов в API.
+              </p>
+              <hr>
+              <b>07.05.2021</b>
+              <p>
+                [#] Сегодня целый день изучал материалы по работе IT-INCUBTOR-а. Решил тестовое, и оплатил первый взнос за обучение в
+                инкубаторе. Решил пойти учиться в инкубатор из-за чувства, незнания что конкретно учить и начинаю распыляться на левые штучки. Ссылки на материалы к сожалению не могу скидывать, но вкратце буду описывать учебный процесс. Старт обучения уже 24 МАЯ 2021!
+              </p>
+              <hr>
+              <b>06.05.2021</b>
+              <p>
+                [#] Дописал функционал запроса и получения постов, надо сделать pagination и sidebar.
+              </p>
+              <p>
+                [#] Посмотрел <a href="https://www.youtube.com/watch?v=x5YssUtaynM" title="10. Вайтишный стрим - куда пропал, про планы, будет ли дальше контент" target="_blank">10. Вайтишный стрим - куда пропал, про планы, будет ли дальше контент</a>
+              </p>
+              <hr> 
+              <b>05.05.2021</b>
+              <p>
+                [#] Написал фэйковый API, все отлично функционирует остается настроить визуал.
+              </p>
+              <hr>
+              <b>04.05.2021</b>
+              <p>
+                [#] Продолжил написание BLL, добавил redux-thunk и React-Html-Parser, думаю за 2 дня закончу BLL.
+              </p>
+              <p>
+                [#] Посмотрел <a href="https://www.youtube.com/watch?v=B3tF12UWIsQ&list=PLcvhF2Wqh7DOjApuSClDESOjVt5_qKjoZ&index=15" title="#06 Night Show by Dimych 2020-10-15" target="_blank">#06 Night Show by Dimych 2020-10-15</a>
+              </p>
+              <hr>
+              <b>03.05.2021</b>
+              <p>
+                [#] Начал написание BLL, добавил redux, react-redux, а также пришлось обновить модуль node-sass из-за обновления nodejs.
+                Первым делом создал store, закомбайнил пока один) reducer, добавил селекторы и обернул провайдером всё приложение.
+              </p>
+              <p>
+                [#] Посмотрел <a href="https://www.youtube.com/watch?v=Qu-oyzWIpjI" title="Как запускать Node.js приложения на своем сервере VDS" target="_blank">Как запускать Node.js приложения на своем сервере VDS</a>
+              </p>
+              <hr>
                 
                 <div class="nav-blog">
-                  <a href="blog.html">20</a>
+                  <a href="blog.html">21</a>
+                  <a href="blog-page20.html">20</a>
                   <a href="blog-page19.html">19</a>
                   <a href="blog-page18.html">18</a>
                   <a href="blog-page17.html">17</a>
