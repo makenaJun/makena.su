@@ -34,6 +34,20 @@
         <div class="news-block">
           <div class="news-title">Блог</div>
           <div class="news-content">
+             <b>26.02.2021</b>
+            <p>
+              [#] Хорошие видео на темы => <a href="https://www.youtube.com/watch?v=o-8bXkiNdeE"
+                title="Окружение и замыкания" target="_blank">[Окружение и замыкания]</a>, <a
+                href="https://www.youtube.com/watch?v=SGeQ-U0G7dE" title="Все о Spread и Rest" target="_blank">[Все о
+                Spread и Rest]</a>, <a href="https://www.youtube.com/watch?v=cS6nTVNzOPw"
+                title="Объекты с Object.create. Что такое getters, setters" target="_blank">[Объекты с Object.create.
+                Что такое getters, setters]</a>, <a href="https://www.youtube.com/watch?v=uLY9GXGMXaA"
+                title="Все о ES6 Классах" target="_blank">[Все о ES6 Классах]</a>, <a
+                href="https://www.youtube.com/watch?v=XTrXDgc7oHo" title="Символы (Symbols)" target="_blank">[Символы
+                (Symbols)]</a>, <a href="https://www.youtube.com/watch?v=1idOY3C1gYU" title="Promise"
+                target="_blank">[Promise]</a>.
+            </p>
+            <hr> 
             <b>25.02.2021</b>
             <p>
               [#] По теме <i>this</i>. Еще видео => <a href="https://www.youtube.com/watch?v=UGapN-hrekw"
@@ -175,32 +189,6 @@
               скорее всего не встретишь, но я прочел для общего развития.
             </p>
             <hr> 
-            <b>16.02.2021</b>
-            <p>
-              [#] Исправил баг со словом "дней" в блоке "Прогресс". Написал простейшую функцию которая берет количество
-              дней отрезает последние цифры, проходит по условиям и соответственно принимает решение какое слово
-              вставить [Обучаюсь - 111 дней, 121 день, 122дня].
-            </p>
-            <p>
-              [#] Задумался о том, чтобы хранить данные для блока "Прогресс" не в JS файле, а в JSON. Думаю будет не
-              лишним практика работы с JSON.
-            </p>
-            <p>
-              [#] Ознакомился с разделом <a href="https://learn.javascript.ru/frames-and-windows" title="Фреймы и окна"
-                target="_blank">Фреймы и окна</a>. Интересно было прочитать про взлом с помощью clickjacking.
-            </p>
-            <p>
-              [#] Так же исправил баг с кэшированием. Обновил JS файл и загрузил на сервер, при переходе на сайт
-              изменения не отображались, так как брался из кэша старый JS файл. Немного погуглив нашел вариант в ссылку
-              на JS файл добавить PHP код который добавляет к пути на файл дату его последнего обновления. Браузер при
-              загрузке сравнивает ссылки и если дата в ссылке изменилась, то подгружает актуальную версию файла.
-              <br>
-              <code><b>
-                           &lt;script src="js/progress.js?&lt;?php echo filemtime('js/progress.js') ?&gt;"&gt;&lt;/script&gt;
-                        </b></code>
-
-            </p>
-            <hr>
                                                                                                              
             <div class="nav-blog">
               <a href="blog.html">22</a>
