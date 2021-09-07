@@ -34,6 +34,26 @@
             <div class="news-block">
               <div class="news-title">Блог</div>
               <div class="news-content">
+                <b>18.05.2021</b>
+                <p>
+                  [#] Оказывается Full Stack разработка очень затягивается разными мелочами. Сегодня сделал вывод новостей в React app, а на серверной стороне реализовал дозированную отдачу данных (Запрос всех постов => Сортируем посты по дате [новый - старый] => Лимитируем количество записей => Делаем скип, чтобы добиться запроса следующей порции страниц). 
+                </p>
+                <p>
+                  [#] Также при тестовом deploy на сервер наткнулся на проблему, что BrowserRouter делает ссылки типа <i>http://makena.su/blog</i> и при обновлении сайта с такой ссылкой мы попадаем на страницу 404. Решение с HashRouter мне не очень понравилось, немного погуглив нашел решение <a href="https://stackoverflow.com/questions/27928372/react-router-urls-dont-work-when-refreshing-or-writing-manually/36623117#36623117" target="_blank" title="React-router urls don't work when refreshing or writing manually2">React-router urls don't work when refreshing or writing manually</a>. Я воспользовался способом с добавлением файла .htaccess и кодом <pre><code><IfModule mod_rewrite.c>
+                    RewriteEngine On
+                    RewriteBase /
+                    RewriteRule ^index\.html$ - [L]
+                    RewriteCond %{REQUEST_FILENAME} !-f
+                    RewriteCond %{REQUEST_FILENAME} !-d
+                    RewriteCond %{REQUEST_FILENAME} !-l
+                    RewriteRule . /index.html [L]
+                  </IfModule></code></pre>
+                </p>
+                <p>
+                  [#] Посмотрел => 
+                  <a href="https://www.youtube.com/watch?v=cixiEGABi_E" target="_blank" title="#07 Night Show by Dimych 2020-10-25">#07 Night Show by Dimych 2020-10-25</a>, <a href="https://www.youtube.com/watch?v=v6gWWBy_cOM" target="_blank" title="#08 Night Show by Dimych 2020-11-12">#08 Night Show by Dimych 2020-11-12</a>
+                </p>
+                <hr>
                 <b>17.05.2021</b>
                 <p>
                   [#] Доделал BackEnd и начал соединять c React app. Завтра доделаю API и буду деплоить сервер и приложение.
@@ -93,16 +113,6 @@
                 <b>09.05.2021</b>
               <p>
                 [#] Сегодня доделал все front слои UI, BLL, DAL - пока фэйковый. Начал копать в сторону серверной части. Бэк будет Express + mongodb.
-              </p>
-              <hr>
-                <b>08.05.2021</b>
-              <p>
-                [#] Сегодня начал изучать первые видосики с инкубатора. Нового ничего не узнал. Cо старта пишем на TypeScript! Познакомились с функциональными компонентами, и узнали что такое пропсы.
-              </p>
-              <p>
-                [#] Продолжил разрабатывать блог, за сегодня сделал пробную pagination в UI и понял что в UI 
-                оперировать всем масивом данныx - это такая себе практика. Завтра буду переносить всю логику по выдаче 
-                постов в API.
               </p>
               <hr>
                 
